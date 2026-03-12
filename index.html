@@ -10,44 +10,91 @@
       min-height: 100vh;
       background: linear-gradient(135deg, #0f0f23, #1a1a3e);
       font-family: 'Segoe UI', -apple-system, Arial, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       color: white;
     }
-    .card {
-      text-align: center;
-      max-width: 480px;
-      padding: 48px 32px;
-    }
-    h1 { font-size: 36px; color: #6c63ff; margin-bottom: 12px; }
-    p { color: #b8b8d0; line-height: 1.6; margin-bottom: 24px; }
-    a {
+    .container { max-width: 720px; margin: 0 auto; padding: 48px 24px; }
+    h1 { font-size: 36px; color: #6c63ff; margin-bottom: 8px; }
+    .tagline { color: #b8b8d0; font-size: 18px; margin-bottom: 32px; }
+    h2 { font-size: 20px; color: #fff; margin: 32px 0 12px; }
+    p, li { color: #b8b8d0; line-height: 1.7; font-size: 15px; }
+    ul { padding-left: 20px; margin-bottom: 16px; }
+    li { margin-bottom: 6px; }
+    .cta {
       display: inline-block;
       background: #6c63ff;
       color: white;
       text-decoration: none;
-      padding: 12px 24px;
+      padding: 14px 28px;
       border-radius: 8px;
       font-weight: 600;
+      font-size: 16px;
+      margin: 24px 0;
     }
-    a:hover { background: #5a52e0; }
-    .links { margin-top: 24px; }
-    .links a {
-      background: none;
-      color: #6c63ff;
-      font-size: 14px;
-      padding: 4px 8px;
+    .cta:hover { background: #5a52e0; }
+    .pricing {
+      background: rgba(108, 99, 255, 0.1);
+      border: 1px solid rgba(108, 99, 255, 0.3);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 24px 0;
     }
+    .pricing h3 { color: #6c63ff; margin-bottom: 8px; }
+    .footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid #2a2a4a;
+      font-size: 13px;
+      color: #666;
+    }
+    .footer a { color: #6c63ff; text-decoration: none; }
   </style>
 </head>
 <body>
-  <div class="card">
+  <div class="container">
     <h1>GamerLingo</h1>
-    <p>The AI translator that actually speaks gamer.<br>Works on Discord, Steam, and Twitch.</p>
-    <a href="https://chromewebstore.google.com/">Get on Chrome Web Store</a>
-    <div class="links">
-      <a href="store/privacy-policy.html">Privacy Policy</a>
+    <p class="tagline">The AI translator that actually speaks gamer.</p>
+
+    <h2>What is GamerLingo?</h2>
+    <p>GamerLingo is a Chrome extension that translates gaming chat using AI. It understands gaming slang like "GG EZ", "noob", "rekt" and translates them naturally — not like Google Translate. Works directly on Discord, Steam, and Twitch.</p>
+
+    <h2>Features</h2>
+    <ul>
+      <li>AI-powered translation that understands 80+ gaming slang terms</li>
+      <li>10 languages: English, Japanese, Chinese, Korean, Spanish, Portuguese, Russian, German, French, Hindi</li>
+      <li>One-click translate on Discord, Steam, and Twitch chat</li>
+      <li>Right-click context menu translation</li>
+      <li>Quick translate from the popup</li>
+    </ul>
+
+    <a class="cta" href="https://chromewebstore.google.com/">Get on Chrome Web Store</a>
+
+    <h2>Pricing</h2>
+    <div class="pricing">
+      <h3>Free</h3>
+      <p>10 translations per day. No credit card required.</p>
+    </div>
+    <div class="pricing">
+      <h3>Pro — $5/month</h3>
+      <p>Unlimited translations. Cancel anytime.</p>
+    </div>
+
+    <h2>How it works</h2>
+    <ul>
+      <li>Install the extension from the Chrome Web Store</li>
+      <li>Select text on Discord, Steam, or Twitch and right-click to translate</li>
+      <li>Or click the translate button that appears on chat messages</li>
+      <li>Upgrade to Pro from the extension popup for unlimited use</li>
+    </ul>
+
+    <h2>Contact</h2>
+    <p>For support or questions, please email: <a href="mailto:gamerlingo.support@gmail.com" style="color:#6c63ff;">gamerlingo.support@gmail.com</a></p>
+
+    <div class="footer">
+      <p>
+        <a href="store/privacy-policy.html">Privacy Policy</a> ·
+        <a href="store/cancel.html">Refund Policy</a>
+      </p>
+      <p style="margin-top:8px;">&copy; 2026 GamerLingo. All rights reserved.</p>
     </div>
   </div>
 </body>
