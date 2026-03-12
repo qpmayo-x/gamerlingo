@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GamerLingo - Privacy Policy</title>
+  <style>
+    body {
+      font-family: -apple-system, 'Segoe UI', sans-serif;
+      max-width: 720px;
+      margin: 40px auto;
+      padding: 0 20px;
+      color: #333;
+      line-height: 1.7;
+    }
+    h1 { color: #6c63ff; }
+    h2 { color: #444; margin-top: 32px; }
+    .updated { color: #888; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <h1>GamerLingo — Privacy Policy</h1>
+  <p class="updated">Last updated: March 12, 2026</p>
+
+  <h2>Overview</h2>
+  <p>GamerLingo is a Chrome extension that translates gaming chat and text using AI. We are committed to protecting your privacy. This policy explains what data we collect, how we use it, and your rights.</p>
+
+  <h2>Data We Collect</h2>
+  <p><strong>We collect no personal data.</strong></p>
+  <ul>
+    <li>We do not collect your name, email, or any identifying information.</li>
+    <li>We do not track your browsing activity.</li>
+    <li>We do not use analytics or tracking scripts.</li>
+    <li>We do not store cookies.</li>
+  </ul>
+
+  <h2>Data Processed Locally</h2>
+  <p>The following data is stored <strong>locally in your browser only</strong> (using Chrome's storage API) and is never sent to our servers:</p>
+  <ul>
+    <li><strong>API Key:</strong> Your Anthropic API key, used to authenticate translation requests.</li>
+    <li><strong>Usage Count:</strong> A daily counter of translations used, to enforce free tier limits.</li>
+    <li><strong>Preferences:</strong> Your language and display preferences.</li>
+  </ul>
+
+  <h2>Data Sent to Third Parties</h2>
+  <p>When you request a translation, the selected text is sent to <strong>Anthropic's Claude API</strong> for processing. This is necessary for the translation to work.</p>
+  <ul>
+    <li>Only the text you choose to translate is sent.</li>
+    <li>Your API key is sent directly to Anthropic to authenticate the request.</li>
+    <li>We do not operate any intermediary server. The request goes directly from your browser to Anthropic.</li>
+    <li>Anthropic's privacy policy applies to data processed by their API: <a href="https://www.anthropic.com/privacy">https://www.anthropic.com/privacy</a></li>
+  </ul>
+
+  <h2>Data We Do NOT Collect</h2>
+  <ul>
+    <li>We do not read or store your Discord messages, Twitch chats, or Steam content beyond the specific text you select for translation.</li>
+    <li>We do not store translations on any server.</li>
+    <li>We do not build user profiles.</li>
+    <li>We do not sell or share any data with third parties.</li>
+  </ul>
+
+  <h2>Permissions</h2>
+  <p>GamerLingo requests the following Chrome permissions:</p>
+  <ul>
+    <li><strong>contextMenus:</strong> To add the "Translate" option to your right-click menu.</li>
+    <li><strong>storage:</strong> To save your API key and preferences locally.</li>
+    <li><strong>activeTab:</strong> To read selected text on the current page when you request a translation.</li>
+    <li><strong>Host permissions (discord.com, steampowered.com, twitch.tv):</strong> To inject translation buttons into chat interfaces.</li>
+  </ul>
+
+  <h2>Children's Privacy</h2>
+  <p>GamerLingo is not directed at children under 13. We do not knowingly collect data from children.</p>
+
+  <h2>Changes to This Policy</h2>
+  <p>We may update this policy from time to time. Changes will be posted on this page with an updated date.</p>
+
+  <h2>Contact</h2>
+  <p>If you have questions about this privacy policy, please open an issue on our GitHub repository.</p>
+</body>
+</html>
