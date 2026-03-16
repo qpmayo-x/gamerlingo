@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Screenshot 2: 10 Languages</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1280px; height: 800px;
+      background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #16213e 100%);
+      font-family: 'Segoe UI', -apple-system, Arial, sans-serif;
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+    }
+    .title {
+      font-size: 36px; font-weight: 800; color: #6c63ff;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      font-size: 18px; color: #b8b8d0; margin-bottom: 40px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      padding: 0 80px;
+      width: 100%;
+    }
+    .lang-card {
+      background: #1e1e3a;
+      border: 1px solid #2a2a5a;
+      border-radius: 14px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .lang-flag {
+      font-size: 36px;
+      margin-bottom: 8px;
+    }
+    .lang-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .lang-native {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 10px;
+    }
+    .lang-example {
+      background: rgba(108,99,255,0.1);
+      border-radius: 8px;
+      padding: 8px;
+      font-size: 11px;
+      color: #b8b8d0;
+      line-height: 1.4;
+    }
+    .lang-example .original {
+      color: #666;
+      margin-bottom: 2px;
+    }
+    .lang-example .translated {
+      color: #57f287;
+      font-weight: 600;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(108,99,255,0.2);
+      border: 1px solid rgba(108,99,255,0.4);
+      border-radius: 20px;
+      padding: 6px 16px;
+      color: #6c63ff;
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 32px;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">10 Languages, One Extension</div>
+  <div class="subtitle">Gaming slang dictionaries for every language pair</div>
+  <div class="grid">
+    <div class="lang-card">
+      <div class="lang-flag">🇺🇸</div>
+      <div class="lang-name">English</div>
+      <div class="lang-native">English</div>
+      <div class="lang-example">
+        <div class="original">"noob get rekt"</div>
+        <div class="translated">→ 雑魚ボコされてるw</div>
+      </div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-flag">🇯🇵</div>
+      <div class="lang-name">Japanese</div>
+      <div class="lang-native">日本語</div>
+      <div class="lang-example">
+        <div class="original">"草生えるwww"</div>
+        <div class="translated">→ lmaooo</div>
+      </div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-flag">🇨🇳</div>
+      <div class="lang-name">Chinese</div>
+      <div class="lang-native">中文</div>
+      <div class="lang-example">
+        <div class="original">"666 太强了"</div>
+        <div class="translated">→ Awesome, so good!</div>
+      </div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-flag">🇰🇷</div>
+      <div class="lang-name">Korean</div>
+      <div class="lang-native">한국어</div>
+      <div class="lang-example">
+        <div class="original">"캐리해줘 ㅋㅋ"</div>
+        <div class="translated">→ Carry me lol</div>
+      </div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-flag">🇪🇸</div>
+      <div class="lang-name">Spanish</div>
+      <div class="lang-native">Español</div>
+      <div class="lang-example">
+        <div class="original">"está roto ese champ"</div>
+        <div class="translated">→ That champ is OP</div>
+      </div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-flag">🇧🇷</div>
+      <div class="lang-name">Portuguese</div>
+      <div class="lang-native">Português</div>
+      <div class="lang-example">
+        <div class="original">"jogou demais irmão"</div>
+        <div class="translated">→ You played insane bro</div>
+      </div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-flag">🇷🇺</div>
+      <div class="lang-name">Russian</div>
+      <div class="lang-native">Русский</div>
+      <div class="lang-example">
+        <div class="original">"нуб, иди учись"</div>
+        <div class="translated">→ Noob, go practice</div>
+      </div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-flag">🇩🇪</div>
+      <div class="lang-name">German</div>
+      <div class="lang-native">Deutsch</div>
+      <div class="lang-example">
+        <div class="original">"der ist so kaputt"</div>
+        <div class="translated">→ He's so broken/OP</div>
+      </div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-flag">🇫🇷</div>
+      <div class="lang-name">French</div>
+      <div class="lang-native">Français</div>
+      <div class="lang-example">
+        <div class="original">"il est cheaté ce perso"</div>
+        <div class="translated">→ This char is OP</div>
+      </div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-flag">🇮🇳</div>
+      <div class="lang-name">Hindi</div>
+      <div class="lang-native">हिन्दी</div>
+      <div class="lang-example">
+        <div class="original">"बहुत OP है भाई"</div>
+        <div class="translated">→ So OP bro</div>
+      </div>
+    </div>
+  </div>
+  <div class="badge">386+ Gaming Slang Terms Across All Languages</div>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Screenshot 3: Discord Integration</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1280px; height: 800px;
+      background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #16213e 100%);
+      font-family: 'Segoe UI', -apple-system, Arial, sans-serif;
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      gap: 48px;
+    }
+    .info {
+      width: 340px;
+    }
+    .info-title {
+      font-size: 32px; font-weight: 800; color: #fff;
+      margin-bottom: 12px; line-height: 1.2;
+    }
+    .info-title span { color: #5865f2; }
+    .info-desc {
+      font-size: 16px; color: #b8b8d0; line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .info-feature {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 12px; color: #b8b8d0; font-size: 14px;
+    }
+    .info-feature .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #6c63ff; flex-shrink: 0;
+    }
+    /* Discord mock */
+    .discord {
+      width: 540px; background: #313338;
+      border-radius: 14px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .d-sidebar {
+      display: flex;
+    }
+    .d-channels {
+      width: 180px; background: #2b2d31; padding: 12px 0;
+    }
+    .d-channels-header {
+      padding: 0 12px 8px; font-size: 11px; font-weight: 700;
+      color: #949ba4; text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .d-channel {
+      padding: 4px 12px; font-size: 13px; color: #949ba4;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .d-channel.active {
+      background: rgba(79,84,92,0.6); color: #fff; border-radius: 4px;
+      margin: 0 6px; padding: 4px 6px;
+    }
+    .d-channel-hash { font-size: 16px; opacity: 0.6; }
+    .d-main { flex: 1; }
+    .d-header {
+      background: #313338; padding: 10px 16px;
+      border-bottom: 1px solid #1e1f22;
+      color: #fff; font-weight: 600; font-size: 14px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .d-header-hash { color: #80848e; font-size: 18px; }
+    .d-msgs { padding: 8px 0; background: #313338; }
+    .d-msg {
+      padding: 4px 16px; display: flex; gap: 12px;
+    }
+    .d-msg:hover { background: rgba(0,0,0,0.05); }
+    .d-avatar {
+      width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+    }
+    .d-avatar.purple { background: #5865f2; }
+    .d-avatar.orange { background: #f0a050; }
+    .d-avatar.teal { background: #2dc4b2; }
+    .d-avatar.pink { background: #eb459e; }
+    .d-body { flex: 1; }
+    .d-name { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+    .d-name.purple { color: #5865f2; }
+    .d-name.orange { color: #f0a050; }
+    .d-name.teal { color: #2dc4b2; }
+    .d-name.pink { color: #eb459e; }
+    .d-text { color: #dbdee1; font-size: 14px; line-height: 1.4; }
+    .gl-btn {
+      display: inline-flex; align-items: center; gap: 3px;
+      font-size: 11px; color: #6c63ff;
+      background: rgba(108,99,255,0.15); border-radius: 4px;
+      padding: 2px 6px; margin-left: 8px; cursor: pointer;
+    }
+    .d-translation {
+      background: rgba(108,99,255,0.08);
+      border-left: 3px solid #6c63ff;
+      border-radius: 0 8px 8px 0;
+      color: #c8c8e0; font-size: 13px;
+      margin-top: 6px; padding: 6px 10px;
+      line-height: 1.4;
+    }
+    .d-translation .label {
+      font-size: 10px; color: #6c63ff; font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .d-input-area {
+      padding: 12px 16px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .d-input {
+      background: #383a40; border-radius: 8px;
+      padding: 10px 14px; color: #72767d; font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="info">
+    <div class="info-title">
+      Translate <span>Discord</span> Chat Instantly
+    </div>
+    <div class="info-desc">
+      Click the 🌐 GL button on any message to get a natural, slang-aware translation.
+    </div>
+    <div class="info-feature"><div class="dot"></div> One-click translate button on every message</div>
+    <div class="info-feature"><div class="dot"></div> Right-click context menu translation</div>
+    <div class="info-feature"><div class="dot"></div> Auto-translate mode (Pro)</div>
+    <div class="info-feature"><div class="dot"></div> AI reply suggestions (Pro)</div>
+    <div class="info-feature"><div class="dot"></div> Keyboard shortcut: Alt+T</div>
+  </div>
+
+  <div class="discord">
+    <div class="d-sidebar">
+      <div class="d-channels">
+        <div class="d-channels-header">Text Channels</div>
+        <div class="d-channel active"><span class="d-channel-hash">#</span> general</div>
+        <div class="d-channel"><span class="d-channel-hash">#</span> lfg</div>
+        <div class="d-channel"><span class="d-channel-hash">#</span> highlights</div>
+      </div>
+      <div class="d-main">
+        <div class="d-header">
+          <span class="d-header-hash">#</span> general
+        </div>
+        <div class="d-msgs">
+          <div class="d-msg">
+            <div class="d-avatar purple"></div>
+            <div class="d-body">
+              <div class="d-name purple">ShadowBlade99</div>
+              <div class="d-text">
+                clutch or kick lol no cap we're throwing so hard rn
+                <span class="gl-btn">🌐 GL</span>
+              </div>
+              <div class="d-translation">
+                <div class="label">GamerLingo → 日本語</div>
+                クラッチ決めろ、マジで今めちゃくちゃ負けてるぞw
+              </div>
+            </div>
+          </div>
+          <div class="d-msg">
+            <div class="d-avatar orange"></div>
+            <div class="d-body">
+              <div class="d-name orange">YukiSniper</div>
+              <div class="d-text">
+                このゲームバフ来すぎてバランス崩壊してる
+                <span class="gl-btn">🌐 GL</span>
+              </div>
+              <div class="d-translation">
+                <div class="label">GamerLingo → English</div>
+                This game got buffed way too much, the balance is completely broken
+              </div>
+            </div>
+          </div>
+          <div class="d-msg">
+            <div class="d-avatar teal"></div>
+            <div class="d-body">
+              <div class="d-name teal">BR_Gamer_Zin</div>
+              <div class="d-text">
+                esse cara é muito tryhard kkkk
+                <span class="gl-btn">🌐 GL</span>
+              </div>
+              <div class="d-translation">
+                <div class="label">GamerLingo → English</div>
+                This guy is such a tryhard lmao
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-input-area">
+          <div class="d-input">Message #general</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

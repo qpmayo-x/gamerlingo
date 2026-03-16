@@ -1,0 +1,12 @@
+/* Content Script用の最小CSS — Shadow DOMを使うのでほぼ空 */
+#gamerlingo-root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2147483647;
+  pointer-events: none;
+}
+
+#gamerlingo-root > * {
+  pointer-events: auto;
+}

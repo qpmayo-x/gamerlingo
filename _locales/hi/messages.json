@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "GamerLingo - AI गेम ट्रांसलेटर",
+    "description": "Extension name shown in Chrome"
+  },
+  "appDescription": {
+    "message": "गेमर्स के लिए AI ट्रांसलेटर। GG, noob, nerf जैसे स्लैंग समझता है। Discord, Steam और Twitch पर काम करता है।",
+    "description": "Extension description shown in Chrome"
+  }
+}

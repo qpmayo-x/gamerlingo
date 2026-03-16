@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "GamerLingo - AI Переводчик для Геймеров",
+    "description": "Extension name shown in Chrome"
+  },
+  "appDescription": {
+    "message": "AI-переводчик для геймеров. Понимает GG, noob, nerf и другой сленг. Discord, Steam, Twitch.",
+    "description": "Extension description shown in Chrome"
+  }
+}

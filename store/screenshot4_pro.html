@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Screenshot 4: Pro Features</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1280px; height: 800px;
+      background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #16213e 100%);
+      font-family: 'Segoe UI', -apple-system, Arial, sans-serif;
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+    }
+    .header {
+      text-align: center; margin-bottom: 40px;
+    }
+    .header h1 {
+      font-size: 36px; font-weight: 800; color: #fff;
+      margin-bottom: 8px;
+    }
+    .header h1 span { color: #6c63ff; }
+    .header p {
+      font-size: 18px; color: #b8b8d0;
+    }
+    .cards {
+      display: flex; gap: 24px; padding: 0 60px;
+    }
+    .card {
+      background: #1e1e3a;
+      border: 1px solid #2a2a5a;
+      border-radius: 16px;
+      padding: 28px;
+      flex: 1;
+      min-width: 0;
+    }
+    .card-icon {
+      font-size: 32px; margin-bottom: 12px;
+    }
+    .card-title {
+      font-size: 18px; font-weight: 700; color: #fff;
+      margin-bottom: 8px;
+    }
+    .card-desc {
+      font-size: 14px; color: #888; line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .card-demo {
+      background: #151530;
+      border-radius: 10px;
+      padding: 14px;
+    }
+    /* AI Reply demo */
+    .reply-original {
+      font-size: 12px; color: #666; margin-bottom: 8px;
+    }
+    .reply-option {
+      background: rgba(108,99,255,0.1);
+      border: 1px solid rgba(108,99,255,0.2);
+      border-radius: 8px;
+      padding: 8px 12px;
+      margin-bottom: 6px;
+      font-size: 13px; color: #c8c8e0;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .reply-tag {
+      font-size: 10px; font-weight: 700;
+      padding: 2px 6px; border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .reply-tag.friendly { background: #57f287; color: #000; }
+    .reply-tag.banter { background: #fee75c; color: #000; }
+    .reply-tag.neutral { background: #5865f2; color: #fff; }
+    /* Word Book demo */
+    .word-item {
+      display: flex; justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid #2a2a4a;
+      font-size: 13px;
+    }
+    .word-item:last-child { border-bottom: none; }
+    .word-term { color: #fff; font-weight: 600; }
+    .word-meaning { color: #888; }
+    .word-star { color: #fee75c; }
+    /* Auto-translate demo */
+    .auto-row {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 10px;
+    }
+    .auto-original {
+      background: #2b2d31; border-radius: 8px;
+      padding: 8px 12px; font-size: 12px; color: #dbdee1;
+      flex: 1;
+    }
+    .auto-arrow { color: #6c63ff; font-size: 16px; flex-shrink: 0; }
+    .auto-translated {
+      background: rgba(108,99,255,0.1);
+      border-radius: 8px;
+      padding: 8px 12px; font-size: 12px; color: #57f287;
+      flex: 1;
+    }
+    .auto-badge {
+      display: inline-block;
+      background: #6c63ff; color: white;
+      font-size: 10px; font-weight: 700;
+      padding: 2px 8px; border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .price-bar {
+      margin-top: 36px;
+      display: flex; align-items: center; justify-content: center;
+      gap: 16px;
+    }
+    .price {
+      font-size: 28px; font-weight: 800; color: #6c63ff;
+    }
+    .price-note {
+      font-size: 14px; color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Unlock <span>Pro</span> Features</h1>
+    <p>Unlimited translations + powerful tools for serious gamers</p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">💬</div>
+      <div class="card-title">AI Reply Generation</div>
+      <div class="card-desc">Get reply suggestions in any language — friendly, banter, or neutral tone.</div>
+      <div class="card-demo">
+        <div class="reply-original">Replying to: "gg ez noob team diff"</div>
+        <div class="reply-option">
+          <span class="reply-tag friendly">Friendly</span>
+          Good game! We'll get them next time 💪
+        </div>
+        <div class="reply-option">
+          <span class="reply-tag banter">Banter</span>
+          lol says the one who got carried 😂
+        </div>
+        <div class="reply-option">
+          <span class="reply-tag neutral">Neutral</span>
+          gg, close game
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">⭐</div>
+      <div class="card-title">Word Book</div>
+      <div class="card-desc">Save gaming terms and build your vocabulary across languages.</div>
+      <div class="card-demo">
+        <div class="word-item">
+          <span class="word-term">clutch</span>
+          <span class="word-meaning">ギリギリの逆転プレイ</span>
+          <span class="word-star">⭐</span>
+        </div>
+        <div class="word-item">
+          <span class="word-term">inting</span>
+          <span class="word-meaning">わざと負けるプレイ</span>
+          <span class="word-star">⭐</span>
+        </div>
+        <div class="word-item">
+          <span class="word-term">草</span>
+          <span class="word-meaning">lmao / lol</span>
+          <span class="word-star">⭐</span>
+        </div>
+        <div class="word-item">
+          <span class="word-term">tryhard</span>
+          <span class="word-meaning">ガチ勢</span>
+          <span class="word-star">⭐</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">⚡</div>
+      <div class="card-title">Auto-Translate</div>
+      <div class="card-desc">Automatically translate every new message in Discord & Twitch chat.</div>
+      <div class="card-demo">
+        <div class="auto-badge">AUTO MODE ON</div>
+        <div class="auto-row">
+          <div class="auto-original">gg wp that was insane</div>
+          <div class="auto-arrow">→</div>
+          <div class="auto-translated">gg 神プレイだったわ</div>
+        </div>
+        <div class="auto-row">
+          <div class="auto-original">味方つよすぎワロタ</div>
+          <div class="auto-arrow">→</div>
+          <div class="auto-translated">Teammates are cracked lol</div>
+        </div>
+        <div class="auto-row">
+          <div class="auto-original">너무 잘하네 ㅋㅋ</div>
+          <div class="auto-arrow">→</div>
+          <div class="auto-translated">You're so good haha</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="price-bar">
+    <div class="price">$5/month</div>
+    <div class="price-note">Unlimited translations · Cancel anytime</div>
+  </div>
+</body>
+</html>

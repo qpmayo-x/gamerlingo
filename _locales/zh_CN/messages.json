@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "GamerLingo - AI游戏翻译",
+    "description": "Extension name shown in Chrome"
+  },
+  "appDescription": {
+    "message": "专为玩家打造的AI翻译。支持GG、noob、nerf等游戏术语。适用于Discord、Steam和Twitch。",
+    "description": "Extension description shown in Chrome"
+  }
+}

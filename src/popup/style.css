@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+body {
+  width: 360px;
+  min-height: 400px;
+  margin: 0;
+  background: #0f0f23;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', -apple-system, sans-serif;
+}
+
+#app {
+  padding: 0;
+}

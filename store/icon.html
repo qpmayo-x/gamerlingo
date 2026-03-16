@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 128px;
+      height: 128px;
+      background: transparent;
+    }
+    .icon {
+      width: 128px;
+      height: 128px;
+      background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 50%, #2563eb 100%);
+      border-radius: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    /* 背景の装飾 */
+    .icon::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 60px;
+      height: 60px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 50%;
+    }
+    .icon::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: -10px;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+    .top-text {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+      position: relative;
+      z-index: 1;
+    }
+    .main-text {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 42px;
+      font-weight: 900;
+      color: white;
+      line-height: 1;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .bottom-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 24px;
+      background: rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      z-index: 1;
+    }
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+    .dot.ja { background: #ff6b6b; }
+    .dot.arrow {
+      width: auto;
+      height: auto;
+      color: rgba(255,255,255,0.5);
+      font-size: 10px;
+      font-family: Arial, sans-serif;
+    }
+    .dot.en { background: #4ade80; }
+  </style>
+</head>
+<body>
+  <div class="icon">
+    <div class="top-text">GAMER</div>
+    <div class="main-text">GL</div>
+    <div class="bottom-bar">
+      <div class="dot ja"></div>
+      <div class="dot arrow">&lt;&gt;</div>
+      <div class="dot en"></div>
+    </div>
+  </div>
+</body>
+</html>

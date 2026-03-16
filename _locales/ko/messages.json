@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "GamerLingo - AI 게임 번역기",
+    "description": "Extension name shown in Chrome"
+  },
+  "appDescription": {
+    "message": "게이머 전용 AI 번역기. GG, noob, nerf 등 게임 슬랭을 자연스럽게 번역. Discord·Steam·Twitch 지원.",
+    "description": "Extension description shown in Chrome"
+  }
+}
