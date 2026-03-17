@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1200px;
+      height: 630px;
+      background: linear-gradient(135deg, #0f0f23, #1a1a3e, #0f0f23);
+      font-family: 'Segoe UI', -apple-system, Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .card {
+      text-align: center;
+      padding: 40px;
+    }
+    .logo {
+      font-size: 72px;
+      font-weight: 800;
+      color: #6c63ff;
+      letter-spacing: -2px;
+      margin-bottom: 16px;
+    }
+    .tagline {
+      font-size: 32px;
+      color: #e0e0f0;
+      font-weight: 400;
+      margin-bottom: 40px;
+    }
+    .demo {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 28px 48px;
+      margin: 0 auto 36px;
+      max-width: 900px;
+      font-family: 'Consolas', 'SF Mono', monospace;
+    }
+    .demo .original {
+      font-size: 24px;
+      color: #888;
+      margin-bottom: 8px;
+    }
+    .demo .arrow {
+      font-size: 20px;
+      color: #444;
+      margin-bottom: 8px;
+    }
+    .demo .translated {
+      font-size: 24px;
+      color: #6c63ff;
+      font-weight: 600;
+    }
+    .badges {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+    .badge {
+      background: rgba(108, 99, 255, 0.15);
+      border: 1px solid rgba(108, 99, 255, 0.3);
+      border-radius: 8px;
+      padding: 10px 20px;
+      color: #b8b8d0;
+      font-size: 18px;
+    }
+    .badge strong { color: #fff; }
+
+    /* Decorative glow */
+    .glow {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(108, 99, 255, 0.12);
+      filter: blur(80px);
+    }
+    .glow-1 { top: -80px; left: -60px; }
+    .glow-2 { bottom: -80px; right: -60px; }
+  </style>
+</head>
+<body>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+  <div class="card">
+    <div class="logo">GamerLingo</div>
+    <div class="tagline">AI translator that actually speaks gamer</div>
+    <div class="demo">
+      <div class="original">"GG EZ, that comp was so broken lol"</div>
+      <div class="arrow">↓</div>
+      <div class="translated">"いい試合だった、楽勝。あのチーム構成は強すぎ 笑"</div>
+    </div>
+    <div class="badges">
+      <div class="badge"><strong>386+</strong> Gaming Slang</div>
+      <div class="badge"><strong>10</strong> Languages</div>
+      <div class="badge">Discord · Steam · Twitch</div>
+    </div>
+  </div>
+</body>
+</html>
