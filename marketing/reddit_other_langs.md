@@ -14,7 +14,7 @@ Fala galera! Cansei do Google Translate destruir as gírias de jogo, então crie
 
 10 idiomas suportados. Grátis (10 traduções/dia)!
 
-[Chrome Web Store link]
+https://chromewebstore.google.com/detail/gamerlingo/hhedidaampanomcdlbebgajbjclmamim
 
 ---
 
@@ -32,7 +32,7 @@ A diferencia de Google Translate, entiende la jerga gamer:
 
 10 idiomas. Gratis (10 traducciones/día)!
 
-[Chrome Web Store link]
+https://chromewebstore.google.com/detail/gamerlingo/hhedidaampanomcdlbebgajbjclmamim
 
 ---
 
@@ -50,7 +50,7 @@ Discord, Steam, Twitch 채팅을 AI로 자연스럽게 번역합니다:
 
 10개 언어 지원. 하루 10번 무료!
 
-[Chrome Web Store link]
+https://chromewebstore.google.com/detail/gamerlingo/hhedidaampanomcdlbebgajbjclmamim
 
 ---
 
@@ -68,7 +68,7 @@ Discord、Steam、Twitch聊天AI翻译：
 
 支持10种语言，每天免费10次！
 
-[Chrome Web Store link]
+https://chromewebstore.google.com/detail/gamerlingo/hhedidaampanomcdlbebgajbjclmamim
 
 ---
 
@@ -86,7 +86,7 @@ Im Gegensatz zu Google Translate versteht es echten Gamer-Slang:
 
 10 Sprachen. Kostenlos (10 Übersetzungen/Tag)!
 
-[Chrome Web Store link]
+https://chromewebstore.google.com/detail/gamerlingo/hhedidaampanomcdlbebgajbjclmamim
 
 ---
 
@@ -104,7 +104,7 @@ Contrairement à Google Translate, ça comprend le vrai slang gamer :
 
 10 langues supportées. Gratuit (10 traductions/jour) !
 
-[Chrome Web Store link]
+https://chromewebstore.google.com/detail/gamerlingo/hhedidaampanomcdlbebgajbjclmamim
 
 ---
 
@@ -122,7 +122,7 @@ It actually understands gaming slang:
 
 Free (10 translations/day). Works great for Indian gamers playing on international servers!
 
-[Chrome Web Store link]
+https://chromewebstore.google.com/detail/gamerlingo/hhedidaampanomcdlbebgajbjclmamim
 
 ---
 
@@ -140,4 +140,4 @@ Free (10 translations/day). Works great for Indian gamers playing on internation
 
 10 языков. Бесплатно (10 переводов/день)!
 
-[Chrome Web Store link]
+https://chromewebstore.google.com/detail/gamerlingo/hhedidaampanomcdlbebgajbjclmamim

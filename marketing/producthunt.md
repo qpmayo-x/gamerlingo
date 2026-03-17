@@ -7,7 +7,7 @@
 **Description:**
 Tired of Google Translate butchering gaming slang? GamerLingo is a Chrome extension that translates gaming chat using AI.
 
-It understands 80+ gaming slang terms like GG, noob, rekt, tilted, feed, clutch, 草, 雑魚, ㅋㅋ, 666 and translates them naturally across 10 languages.
+It understands 386+ gaming slang terms like GG, noob, rekt, tilted, feed, clutch, 草, 雑魚, ㅋㅋ, 666 and translates them naturally across 10 languages.
 
 **How it works:**
 - Install the Chrome extension

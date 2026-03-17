@@ -1,9 +1,19 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GamerLingo — AIゲーム翻訳Chrome拡張機能</title>
+  <title>GamerLingo — AI Game Translator for Discord, Steam & Twitch</title>
+  <meta name="description" content="AI-powered Chrome extension that translates gaming slang. Understands GG, noob, nerf & 386+ terms. Works on Discord, Steam & Twitch. 10 languages supported.">
+  <meta property="og:title" content="GamerLingo — AI Game Translator">
+  <meta property="og:description" content="AI translator that actually speaks gamer. 386+ slang terms, 10 languages, works on Discord, Steam & Twitch.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://qpmayo-x.github.io/gamerlingo/">
+  <meta property="og:image" content="https://qpmayo-x.github.io/gamerlingo/public/icon128.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="GamerLingo — AI Game Translator">
+  <meta name="twitter:description" content="AI translator that actually speaks gamer. 386+ slang terms, 10 languages.">
+  <link rel="icon" href="public/icon48.png" type="image/png">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -12,33 +22,105 @@
       font-family: 'Segoe UI', -apple-system, 'Hiragino Sans', 'Meiryo', Arial, sans-serif;
       color: white;
     }
-    .container { max-width: 720px; margin: 0 auto; padding: 48px 24px; }
-    h1 { font-size: 36px; color: #6c63ff; margin-bottom: 8px; }
+    .container { max-width: 760px; margin: 0 auto; padding: 48px 24px; }
+
+    /* Header */
+    .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+    h1 { font-size: 36px; color: #6c63ff; }
+    .lang-switch {
+      background: rgba(108, 99, 255, 0.15);
+      border: 1px solid rgba(108, 99, 255, 0.4);
+      color: #b8b8d0;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .lang-switch:hover { background: rgba(108, 99, 255, 0.3); }
+
     .tagline { color: #b8b8d0; font-size: 18px; margin-bottom: 32px; }
     h2 { font-size: 20px; color: #fff; margin: 32px 0 12px; }
     p, li { color: #b8b8d0; line-height: 1.7; font-size: 15px; }
     ul { padding-left: 20px; margin-bottom: 16px; }
     li { margin-bottom: 6px; }
+
+    /* Demo */
+    .demo {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 24px 0;
+      font-family: monospace;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .demo .original { color: #888; }
+    .demo .translated { color: #6c63ff; font-weight: 600; }
+    .demo .arrow { color: #444; }
+
+    /* CTA */
+    .cta-wrap { text-align: center; margin: 32px 0; }
     .cta {
       display: inline-block;
       background: #6c63ff;
       color: white;
       text-decoration: none;
-      padding: 14px 28px;
+      padding: 16px 32px;
       border-radius: 8px;
       font-weight: 600;
-      font-size: 16px;
-      margin: 24px 0;
+      font-size: 17px;
     }
     .cta:hover { background: #5a52e0; }
-    .pricing {
-      background: rgba(108, 99, 255, 0.1);
-      border: 1px solid rgba(108, 99, 255, 0.3);
+    .cta-sub { color: #666; font-size: 13px; margin-top: 8px; }
+
+    /* Features grid */
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .feature {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 18px;
+    }
+    .feature .icon { font-size: 24px; margin-bottom: 8px; }
+    .feature h3 { font-size: 15px; color: #fff; margin-bottom: 4px; }
+    .feature p { font-size: 13px; color: #888; line-height: 1.5; }
+
+    /* Pricing */
+    .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+    .plan {
+      background: rgba(108, 99, 255, 0.08);
+      border: 1px solid rgba(108, 99, 255, 0.2);
       border-radius: 12px;
       padding: 24px;
-      margin: 24px 0;
     }
-    .pricing h3 { color: #6c63ff; margin-bottom: 8px; }
+    .plan.pro { border-color: rgba(108, 99, 255, 0.5); }
+    .plan h3 { color: #6c63ff; margin-bottom: 8px; font-size: 18px; }
+    .plan .price { font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .plan .price span { font-size: 14px; color: #888; font-weight: 400; }
+    .plan ul { list-style: none; padding: 0; }
+    .plan li { padding: 4px 0; font-size: 14px; color: #b8b8d0; }
+    .plan li::before { content: "✓ "; color: #6c63ff; }
+
+    /* Platforms */
+    .platforms {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    .platform {
+      text-align: center;
+      color: #888;
+      font-size: 14px;
+    }
+    .platform .name { margin-top: 6px; }
+
     .footer {
       margin-top: 48px;
       padding-top: 24px;
@@ -47,58 +129,165 @@
       color: #666;
     }
     .footer a { color: #6c63ff; text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .features, .pricing-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 28px; }
+    }
+
+    /* Language toggle */
+    [data-lang="ja"] { display: none; }
+    body.ja [data-lang="en"] { display: none; }
+    body.ja [data-lang="ja"] { display: revert; }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>GamerLingo</h1>
-    <p class="tagline">ゲーマーの言葉がわかるAI翻訳ツール</p>
-
-    <h2>GamerLingoとは？</h2>
-    <p>GamerLingoは、ゲームチャットをAIで翻訳するChrome拡張機能です。「GG EZ」「noob」「rekt」などのゲーミングスラングを自然に翻訳します。Discord、Steam、Twitchで直接使えます。</p>
-
-    <h2>主な機能</h2>
-    <ul>
-      <li>80以上のゲーミングスラングに対応したAI翻訳</li>
-      <li>10言語対応：日本語、英語、中国語、韓国語、スペイン語、ポルトガル語、ロシア語、ドイツ語、フランス語、ヒンディー語</li>
-      <li>Discord、Steam、Twitchのチャットをワンクリックで翻訳</li>
-      <li>右クリックメニューから翻訳</li>
-      <li>ポップアップからのクイック翻訳</li>
-    </ul>
-
-    <a class="cta" href="https://chromewebstore.google.com/">Chrome Web Storeで入手</a>
-
-    <h2>料金プラン</h2>
-    <div class="pricing">
-      <h3>無料プラン</h3>
-      <p>1日10回まで翻訳可能。クレジットカード不要。</p>
-    </div>
-    <div class="pricing">
-      <h3>Proプラン — 月額$5</h3>
-      <p>無制限翻訳。いつでも解約可能。</p>
+    <div class="header">
+      <h1>GamerLingo</h1>
+      <button class="lang-switch" onclick="toggleLang()">日本語 / EN</button>
     </div>
 
-    <h2>使い方</h2>
-    <ul>
-      <li>Chrome Web Storeから拡張機能をインストール</li>
-      <li>Discord、Steam、Twitchでテキストを選択し、右クリックで翻訳</li>
-      <li>またはチャットメッセージに表示される翻訳ボタンをクリック</li>
-      <li>拡張機能のポップアップからProプランにアップグレード</li>
-    </ul>
+    <p class="tagline" data-lang="en">AI translator that actually speaks gamer.</p>
+    <p class="tagline" data-lang="ja">ゲーマーの言葉がわかるAI翻訳ツール</p>
 
-    <h2>お問い合わせ</h2>
-    <p>サポート・ご質問はこちら：<a href="mailto:gamerlingo.support@gmail.com" style="color:#6c63ff;">gamerlingo.support@gmail.com</a></p>
+    <!-- Demo -->
+    <div class="demo">
+      <div><span class="original">"GG EZ, that comp was so broken lol"</span></div>
+      <div class="arrow">&darr;</div>
+      <div data-lang="en"><span class="translated">"Good game, easy win. That team composition was overpowered haha"</span></div>
+      <div data-lang="ja"><span class="translated">"いい試合だった、楽勝。あのチーム構成は強すぎ 笑"</span></div>
+    </div>
 
-    <h2>運営者情報</h2>
-    <p>サービス名：GamerLingo<br>提供形態：Chrome拡張機能（サブスクリプション型SaaS）<br>お問い合わせ：gamerlingo.support@gmail.com</p>
+    <!-- CTA -->
+    <div class="cta-wrap">
+      <a class="cta" href="https://chromewebstore.google.com/detail/gamerlingo/hhedidaampanomcdlbebgajbjclmamim" data-lang="en">Add to Chrome — It's Free</a>
+      <a class="cta" href="https://chromewebstore.google.com/detail/gamerlingo/hhedidaampanomcdlbebgajbjclmamim" data-lang="ja">Chromeに追加 — 無料</a>
+      <p class="cta-sub" data-lang="en">Free: 10 translations/day. No credit card required.</p>
+      <p class="cta-sub" data-lang="ja">無料: 1日10回まで。クレジットカード不要。</p>
+    </div>
+
+    <!-- Features -->
+    <h2 data-lang="en">Features</h2>
+    <h2 data-lang="ja">主な機能</h2>
+
+    <div class="features">
+      <div class="feature">
+        <div class="icon">🎮</div>
+        <h3 data-lang="en">386+ Gaming Slang</h3>
+        <h3 data-lang="ja">386以上のスラング</h3>
+        <p data-lang="en">GG, noob, nerf, clutch, AFK, meta — we get it all.</p>
+        <p data-lang="ja">GG, noob, nerf, clutch, AFK, meta — すべて対応。</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🌍</div>
+        <h3 data-lang="en">10 Languages</h3>
+        <h3 data-lang="ja">10言語対応</h3>
+        <p data-lang="en">EN, JA, ZH, KO, ES, PT, RU, DE, FR, HI</p>
+        <p data-lang="ja">英語、日本語、中国語、韓国語、スペイン語 他</p>
+      </div>
+      <div class="feature">
+        <div class="icon">⚡</div>
+        <h3 data-lang="en">One-Click Translate</h3>
+        <h3 data-lang="ja">ワンクリック翻訳</h3>
+        <p data-lang="en">Translate buttons appear right in your chat. Or use Alt+T.</p>
+        <p data-lang="ja">チャット内に翻訳ボタンが表示。Alt+Tでも。</p>
+      </div>
+      <div class="feature">
+        <div class="icon">💬</div>
+        <h3 data-lang="en">AI Reply Generation</h3>
+        <h3 data-lang="ja">AI返信生成</h3>
+        <p data-lang="en">Generate natural replies in any language. Pro feature.</p>
+        <p data-lang="ja">自然な返信を任意の言語で生成。Pro機能。</p>
+      </div>
+    </div>
+
+    <!-- Platforms -->
+    <h2 data-lang="en">Works Where You Play</h2>
+    <h2 data-lang="ja">対応プラットフォーム</h2>
+
+    <div class="platforms">
+      <div class="platform">
+        <div style="font-size:32px;">💬</div>
+        <div class="name">Discord</div>
+      </div>
+      <div class="platform">
+        <div style="font-size:32px;">🎮</div>
+        <div class="name">Steam</div>
+      </div>
+      <div class="platform">
+        <div style="font-size:32px;">📺</div>
+        <div class="name">Twitch</div>
+      </div>
+    </div>
+
+    <!-- Pricing -->
+    <h2 data-lang="en">Pricing</h2>
+    <h2 data-lang="ja">料金プラン</h2>
+
+    <div class="pricing-grid">
+      <div class="plan">
+        <h3>Free</h3>
+        <div class="price" data-lang="en">$0 <span>forever</span></div>
+        <div class="price" data-lang="ja">$0 <span>ずっと無料</span></div>
+        <ul>
+          <li data-lang="en">10 translations / day</li>
+          <li data-lang="ja">1日10回の翻訳</li>
+          <li data-lang="en">All 10 languages</li>
+          <li data-lang="ja">全10言語</li>
+          <li data-lang="en">Discord, Steam, Twitch</li>
+          <li data-lang="ja">Discord, Steam, Twitch</li>
+          <li data-lang="en">Translation history</li>
+          <li data-lang="ja">翻訳履歴</li>
+        </ul>
+      </div>
+      <div class="plan pro">
+        <h3>Pro</h3>
+        <div class="price" data-lang="en">$5 <span>/ month</span></div>
+        <div class="price" data-lang="ja">$5 <span>/ 月</span></div>
+        <ul>
+          <li data-lang="en">Unlimited translations</li>
+          <li data-lang="ja">無制限翻訳</li>
+          <li data-lang="en">Auto-translate chat</li>
+          <li data-lang="ja">自動翻訳</li>
+          <li data-lang="en">AI reply generation</li>
+          <li data-lang="ja">AI返信生成</li>
+          <li data-lang="en">Cancel anytime</li>
+          <li data-lang="ja">いつでも解約可能</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Second CTA -->
+    <div class="cta-wrap">
+      <a class="cta" href="https://chromewebstore.google.com/detail/gamerlingo/hhedidaampanomcdlbebgajbjclmamim" data-lang="en">Get GamerLingo — Free</a>
+      <a class="cta" href="https://chromewebstore.google.com/detail/gamerlingo/hhedidaampanomcdlbebgajbjclmamim" data-lang="ja">GamerLingoを入手 — 無料</a>
+    </div>
+
+    <!-- Contact -->
+    <h2 data-lang="en">Contact</h2>
+    <h2 data-lang="ja">お問い合わせ</h2>
+    <p data-lang="en">Questions or feedback: <a href="mailto:gamerlingo.support@gmail.com" style="color:#6c63ff;">gamerlingo.support@gmail.com</a></p>
+    <p data-lang="ja">サポート・ご質問はこちら：<a href="mailto:gamerlingo.support@gmail.com" style="color:#6c63ff;">gamerlingo.support@gmail.com</a></p>
 
     <div class="footer">
       <p>
-        <a href="store/privacy-policy.html">プライバシーポリシー</a> ·
-        <a href="store/tokushoho.html">特定商取引法に基づく表記</a>
+        <a href="store/privacy-policy.html">Privacy Policy</a> ·
+        <a href="store/tokushoho.html" data-lang="ja">特定商取引法に基づく表記</a>
       </p>
       <p style="margin-top:8px;">&copy; 2026 GamerLingo. All rights reserved.</p>
     </div>
   </div>
+
+  <script>
+    function toggleLang() {
+      document.body.classList.toggle('ja');
+      localStorage.setItem('lang', document.body.classList.contains('ja') ? 'ja' : 'en');
+    }
+    // Auto-detect language
+    if (localStorage.getItem('lang') === 'ja' || (!localStorage.getItem('lang') && navigator.language.startsWith('ja'))) {
+      document.body.classList.add('ja');
+    }
+  </script>
 </body>
 </html>

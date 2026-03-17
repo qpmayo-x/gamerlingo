@@ -38,12 +38,12 @@ Deno.serve(async (req: Request) => {
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
     );
 
-    // Pro会員チェック
+    // Pro会員チェック（activeまたはpast_due=猶予期間中はPro扱い）
     const { data: proData } = await supabase
       .from("pro_members")
       .select("status, expires_at")
       .eq("device_id", deviceId)
-      .eq("status", "active")
+      .in("status", ["active", "past_due"])
       .single();
 
     const isPro = proData && (!proData.expires_at || new Date(proData.expires_at) > new Date());

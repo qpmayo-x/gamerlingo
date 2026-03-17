@@ -37,6 +37,11 @@ Deno.serve(async (req: Request) => {
       metadata: {
         device_id: deviceId,
       },
+      subscription_data: {
+        metadata: {
+          device_id: deviceId,
+        },
+      },
       success_url: "https://qpmayo-x.github.io/gamerlingo/store/success.html",
       cancel_url: "https://qpmayo-x.github.io/gamerlingo/store/cancel.html",
     });

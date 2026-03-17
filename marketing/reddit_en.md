@@ -18,7 +18,7 @@ Hey everyone! I'm a gamer who plays with people from all over the world, and I g
 
 It's free (10 translations/day) and there's a Pro plan for unlimited. Would love feedback from the community!
 
-[Chrome Web Store link]
+https://chromewebstore.google.com/detail/gamerlingo/hhedidaampanomcdlbebgajbjclmamim
 
 ---
 
@@ -38,7 +38,7 @@ Works with slang like:
 
 Free to use (10/day), Pro for unlimited. Check it out!
 
-[Chrome Web Store link]
+https://chromewebstore.google.com/detail/gamerlingo/hhedidaampanomcdlbebgajbjclmamim
 
 ---
 
@@ -49,7 +49,7 @@ Free to use (10/day), Pro for unlimited. Check it out!
 **Body:**
 If you've ever played with teammates who speak a different language, you know Google Translate doesn't cut it for gaming chat.
 
-I built GamerLingo — a Chrome extension that uses AI to translate gaming messages naturally. It knows 80+ gaming slang terms across 10 languages.
+I built GamerLingo — a Chrome extension that uses AI to translate gaming messages naturally. It knows 386+ gaming slang terms across 10 languages.
 
 **How it works:**
 1. Install the extension
@@ -58,7 +58,7 @@ I built GamerLingo — a Chrome extension that uses AI to translate gaming messa
 
 It's free for 10 translations/day. Happy to answer any questions!
 
-[Chrome Web Store link]
+https://chromewebstore.google.com/detail/gamerlingo/hhedidaampanomcdlbebgajbjclmamim
 
 ---
 
@@ -76,7 +76,7 @@ It's a Chrome extension that translates gaming chat and actually understands the
 
 Works on Discord and Twitch. Free to try!
 
-[Chrome Web Store link]
+https://chromewebstore.google.com/detail/gamerlingo/hhedidaampanomcdlbebgajbjclmamim
 
 ---
 
@@ -94,4 +94,4 @@ Unlike Google Translate, it actually understands gaming culture:
 
 10 languages supported. Free to use!
 
-[Chrome Web Store link]
+https://chromewebstore.google.com/detail/gamerlingo/hhedidaampanomcdlbebgajbjclmamim
