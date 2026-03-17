@@ -27,6 +27,13 @@ const UI_STRINGS = {
     proActive: '✨ Pro プラン利用中',
     manageSub: 'サブスクリプション管理',
     cancelSub: 'Stripeで解約・プラン変更が可能です',
+    limitTitle: '今日の無料枠を使い切りました',
+    limitDesc: 'Proなら無制限で翻訳できます',
+    limitFeature1: '無制限翻訳',
+    limitFeature2: '自動翻訳',
+    limitFeature3: 'AI返信生成',
+    limitTrial: '3日間無料で試す',
+    limitClose: '明日また使う',
   },
   en: {
     subtitle: 'AI Game Translator',
@@ -52,6 +59,13 @@ const UI_STRINGS = {
     proActive: '✨ Pro Plan Active',
     manageSub: 'Manage Subscription',
     cancelSub: 'Cancel or change plan via Stripe',
+    limitTitle: "You've used all free translations today",
+    limitDesc: 'Go Pro for unlimited translations',
+    limitFeature1: 'Unlimited translations',
+    limitFeature2: 'Auto-translate chat',
+    limitFeature3: 'AI reply generation',
+    limitTrial: 'Start 3-day free trial',
+    limitClose: 'Come back tomorrow',
   },
   zh: {
     subtitle: 'AI游戏翻译器',
@@ -77,6 +91,13 @@ const UI_STRINGS = {
     proActive: '✨ Pro 计划已激活',
     manageSub: '管理订阅',
     cancelSub: '通过Stripe取消或更改计划',
+    limitTitle: '今日的免费次数已用完',
+    limitDesc: '升级Pro享受无限翻译',
+    limitFeature1: '无限翻译',
+    limitFeature2: '自动翻译',
+    limitFeature3: 'AI回复生成',
+    limitTrial: '免费试用3天',
+    limitClose: '明天再来',
   },
   ko: {
     subtitle: 'AI 게임 번역기',
@@ -102,6 +123,13 @@ const UI_STRINGS = {
     proActive: '✨ Pro 플랜 활성',
     manageSub: '구독 관리',
     cancelSub: 'Stripe에서 해지/변경 가능',
+    limitTitle: '오늘 무료 번역을 모두 사용했습니다',
+    limitDesc: 'Pro로 무제한 번역하세요',
+    limitFeature1: '무제한 번역',
+    limitFeature2: '자동 번역',
+    limitFeature3: 'AI 답장 생성',
+    limitTrial: '3일 무료 체험',
+    limitClose: '내일 다시 올게요',
   },
   es: {
     subtitle: 'Traductor de juegos con IA',
@@ -127,6 +155,13 @@ const UI_STRINGS = {
     proActive: '✨ Plan Pro Activo',
     manageSub: 'Gestionar suscripción',
     cancelSub: 'Cancela o cambia en Stripe',
+    limitTitle: 'Has usado todas las traducciones gratis de hoy',
+    limitDesc: 'Hazte Pro para traducciones ilimitadas',
+    limitFeature1: 'Traducciones ilimitadas',
+    limitFeature2: 'Auto-traducción',
+    limitFeature3: 'Generación de respuestas con IA',
+    limitTrial: 'Prueba gratis 3 días',
+    limitClose: 'Volver mañana',
   },
   pt: {
     subtitle: 'Tradutor gamer com IA',
@@ -152,6 +187,13 @@ const UI_STRINGS = {
     proActive: '✨ Plano Pro Ativo',
     manageSub: 'Gerenciar assinatura',
     cancelSub: 'Cancele ou altere pelo Stripe',
+    limitTitle: 'Você usou todas as traduções grátis de hoje',
+    limitDesc: 'Seja Pro para traduções ilimitadas',
+    limitFeature1: 'Traduções ilimitadas',
+    limitFeature2: 'Auto-tradução',
+    limitFeature3: 'Geração de respostas com IA',
+    limitTrial: 'Teste grátis por 3 dias',
+    limitClose: 'Voltar amanhã',
   },
   ru: {
     subtitle: 'ИИ-переводчик для игр',
@@ -177,6 +219,13 @@ const UI_STRINGS = {
     proActive: '✨ Pro-план активен',
     manageSub: 'Управление подпиской',
     cancelSub: 'Отмена или смена плана через Stripe',
+    limitTitle: 'Бесплатные переводы на сегодня закончились',
+    limitDesc: 'Pro — безлимитные переводы',
+    limitFeature1: 'Безлимитные переводы',
+    limitFeature2: 'Авто-перевод',
+    limitFeature3: 'ИИ-генерация ответов',
+    limitTrial: '3 дня бесплатно',
+    limitClose: 'Вернусь завтра',
   },
   de: {
     subtitle: 'KI-Spieleübersetzer',
@@ -202,6 +251,13 @@ const UI_STRINGS = {
     proActive: '✨ Pro-Plan aktiv',
     manageSub: 'Abo verwalten',
     cancelSub: 'Kündigung oder Planwechsel über Stripe',
+    limitTitle: 'Alle kostenlosen Übersetzungen für heute verbraucht',
+    limitDesc: 'Pro für unbegrenzte Übersetzungen',
+    limitFeature1: 'Unbegrenzte Übersetzungen',
+    limitFeature2: 'Auto-Übersetzen',
+    limitFeature3: 'KI-Antwortgenerierung',
+    limitTrial: '3 Tage kostenlos testen',
+    limitClose: 'Morgen wiederkommen',
   },
   fr: {
     subtitle: 'Traducteur gaming IA',
@@ -227,6 +283,13 @@ const UI_STRINGS = {
     proActive: '✨ Plan Pro actif',
     manageSub: "Gérer l'abonnement",
     cancelSub: 'Annuler ou changer via Stripe',
+    limitTitle: "Vous avez utilisé toutes les traductions gratuites aujourd'hui",
+    limitDesc: 'Passez à Pro pour des traductions illimitées',
+    limitFeature1: 'Traductions illimitées',
+    limitFeature2: 'Auto-traduction',
+    limitFeature3: 'Génération de réponses IA',
+    limitTrial: '3 jours d\'essai gratuit',
+    limitClose: 'Revenir demain',
   },
   hi: {
     subtitle: 'AI गेम ट्रांसलेटर',
@@ -252,6 +315,13 @@ const UI_STRINGS = {
     proActive: '✨ Pro प्लान एक्टिव',
     manageSub: 'सब्सक्रिप्शन मैनेज करें',
     cancelSub: 'Stripe से कैंसल या बदलें',
+    limitTitle: 'आज की मुफ्त अनुवाद सीमा समाप्त',
+    limitDesc: 'Pro में अपग्रेड करें अनलिमिटेड के लिए',
+    limitFeature1: 'अनलिमिटेड ट्रांसलेशन',
+    limitFeature2: 'ऑटो ट्रांसलेट',
+    limitFeature3: 'AI रिप्लाई जनरेशन',
+    limitTrial: '3 दिन फ्री ट्रायल',
+    limitClose: 'कल फिर आएं',
   },
 }
 
@@ -268,6 +338,7 @@ function App() {
   const [wordBookOpen, setWordBookOpen] = useState(false)
   const [wordBookShowAll, setWordBookShowAll] = useState(false)
   const [copiedHistoryIndex, setCopiedHistoryIndex] = useState(null)
+  const [showLimitModal, setShowLimitModal] = useState(false)
 
   useEffect(() => {
     chrome.storage.local.get(['targetLang', 'autoTranslate'], (result) => {
@@ -303,7 +374,8 @@ function App() {
       if (!response) {
         setQuickResult('Error: Extension not responding. Try closing and reopening the popup.')
       } else if (response.limitReached) {
-        setQuickResult(`Daily limit reached (${usage.limit}/${usage.limit}). Upgrade to Pro for unlimited translations!`)
+        setShowLimitModal(true)
+        setQuickResult(`Daily limit reached (${usage.limit}/${usage.limit}).`)
       } else if (response.error) {
         setQuickResult(response.error)
       } else {
@@ -344,7 +416,66 @@ function App() {
           animation: upgradePulse 1.5s ease-in-out infinite;
           border: 2px solid #ff6b6b;
         }
+        @keyframes modalFadeIn {
+          from { opacity: 0; transform: scale(0.95); }
+          to { opacity: 1; transform: scale(1); }
+        }
       `}</style>
+
+      {/* Limit Reached Modal */}
+      {showLimitModal && (
+        <div style={{
+          position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.75)', zIndex: 50,
+          display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px',
+        }}>
+          <div style={{
+            background: '#16213e', borderRadius: '16px', padding: '28px 24px',
+            maxWidth: '320px', width: '100%', textAlign: 'center',
+            border: '1px solid rgba(108,99,255,0.3)',
+            animation: 'modalFadeIn 0.2s ease-out',
+          }}>
+            <div style={{ fontSize: '48px', marginBottom: '12px' }}>🚫</div>
+            <h2 style={{ color: '#fff', fontSize: '16px', fontWeight: 700, marginBottom: '8px' }}>
+              {t.limitTitle}
+            </h2>
+            <p style={{ color: '#888', fontSize: '13px', marginBottom: '20px' }}>
+              {t.limitDesc}
+            </p>
+            <div style={{
+              background: 'rgba(108,99,255,0.08)', borderRadius: '10px', padding: '14px',
+              marginBottom: '20px', textAlign: 'left',
+            }}>
+              {[t.limitFeature1, t.limitFeature2, t.limitFeature3].map((f, i) => (
+                <div key={i} style={{ color: '#b8b8d0', fontSize: '13px', padding: '3px 0' }}>
+                  <span style={{ color: '#6c63ff', marginRight: '8px' }}>✓</span>{f}
+                </div>
+              ))}
+            </div>
+            <button
+              onClick={() => {
+                setShowLimitModal(false)
+                chrome.runtime.sendMessage({ type: 'CREATE_CHECKOUT' })
+              }}
+              style={{
+                width: '100%', background: 'linear-gradient(135deg, #6c63ff, #4834d4)',
+                color: '#fff', border: 'none', borderRadius: '10px', padding: '12px',
+                fontSize: '14px', fontWeight: 600, cursor: 'pointer', marginBottom: '10px',
+              }}
+            >
+              {t.limitTrial}
+            </button>
+            <button
+              onClick={() => setShowLimitModal(false)}
+              style={{
+                width: '100%', background: 'transparent', color: '#666',
+                border: 'none', fontSize: '12px', cursor: 'pointer', padding: '6px',
+              }}
+            >
+              {t.limitClose}
+            </button>
+          </div>
+        </div>
+      )}
       {/* Header */}
       <div className="bg-[#16213e] px-4 py-3 border-b border-[#2a2a4a]">
         <div className="flex items-center gap-2">
@@ -587,14 +718,26 @@ function App() {
               />
             </div>
             <div className="text-[10px] text-gray-500 mb-2">{t.resetsAt}</div>
-            <button
-              className={`w-full bg-gradient-to-r from-[#6c63ff] to-[#4834d4] text-white py-2 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity${remaining <= 3 ? ' upgrade-pulse' : ''}`}
-              onClick={() => {
-                chrome.runtime.sendMessage({ type: 'CREATE_CHECKOUT' })
-              }}
-            >
-              {t.upgradePro}
-            </button>
+            <div className="flex gap-2">
+              <button
+                className={`flex-1 bg-gradient-to-r from-[#6c63ff] to-[#4834d4] text-white py-2 rounded-lg text-xs font-medium hover:opacity-90 transition-opacity${remaining <= 3 ? ' upgrade-pulse' : ''}`}
+                onClick={() => {
+                  chrome.runtime.sendMessage({ type: 'CREATE_CHECKOUT', plan: 'monthly' })
+                }}
+              >
+                $5/mo
+              </button>
+              <button
+                className={`flex-1 bg-gradient-to-r from-[#6c63ff] to-[#4834d4] text-white py-2 rounded-lg text-xs font-medium hover:opacity-90 transition-opacity relative${remaining <= 3 ? ' upgrade-pulse' : ''}`}
+                onClick={() => {
+                  chrome.runtime.sendMessage({ type: 'CREATE_CHECKOUT', plan: 'yearly' })
+                }}
+              >
+                $48/yr
+                <span style={{ position: 'absolute', top: '-8px', right: '-4px', background: '#ff6b6b', color: '#fff', fontSize: '9px', padding: '1px 5px', borderRadius: '8px', fontWeight: 700 }}>-20%</span>
+              </button>
+            </div>
+            <div className="text-[10px] text-gray-500 mt-1 text-center">{t.limitTrial || 'Start 3-day free trial'}</div>
           </>
         )}
         {usage.isPro && (

@@ -163,7 +163,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     return true
   }
   if (message.type === 'CREATE_CHECKOUT') {
-    handleCreateCheckout().then(sendResponse)
+    handleCreateCheckout(message.plan).then(sendResponse)
     return true
   }
   if (message.type === 'GENERATE_REPLY') {
@@ -410,7 +410,7 @@ async function handleManageSubscription() {
   }
 }
 
-async function handleCreateCheckout() {
+async function handleCreateCheckout(plan = 'monthly') {
   try {
     const deviceId = await getDeviceId()
     const response = await fetch(`${SUPABASE_URL}/functions/v1/checkout`, {
@@ -419,7 +419,7 @@ async function handleCreateCheckout() {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
       },
-      body: JSON.stringify({ deviceId }),
+      body: JSON.stringify({ deviceId, plan }),
     })
 
     const data = await response.json()

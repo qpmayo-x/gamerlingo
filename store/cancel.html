@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>GamerLingo — Checkout Canceled</title>
+  <title>GamerLingo — Before You Go</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -16,19 +16,76 @@
     }
     .card {
       text-align: center;
-      max-width: 420px;
+      max-width: 440px;
       padding: 48px 32px;
     }
     .icon { font-size: 64px; margin-bottom: 16px; }
-    h1 { font-size: 28px; margin-bottom: 8px; }
-    p { color: #b8b8d0; line-height: 1.6; }
+    h1 { font-size: 24px; margin-bottom: 12px; }
+    p { color: #b8b8d0; line-height: 1.6; margin-bottom: 20px; font-size: 15px; }
+    .features {
+      background: rgba(108, 99, 255, 0.08);
+      border: 1px solid rgba(108, 99, 255, 0.2);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+      text-align: left;
+    }
+    .features .item {
+      color: #b8b8d0;
+      font-size: 14px;
+      padding: 4px 0;
+    }
+    .features .item span { color: #6c63ff; margin-right: 8px; }
+    .cta {
+      display: inline-block;
+      background: #6c63ff;
+      color: white;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+    .cta:hover { background: #5a52e0; }
+    .secondary { color: #666; font-size: 13px; }
+    .secondary a { color: #6c63ff; text-decoration: none; }
+    .feedback {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid #2a2a4a;
+    }
+    .feedback p { font-size: 13px; color: #666; }
+    .feedback a { color: #6c63ff; text-decoration: none; }
   </style>
 </head>
 <body>
   <div class="card">
-    <div class="icon">👋</div>
-    <h1>No worries!</h1>
-    <p>You can upgrade to Pro anytime from the GamerLingo popup.</p>
+    <div class="icon">💭</div>
+    <h1>Still thinking it over?</h1>
+    <p>No pressure! Here's what you'd get with Pro:</p>
+
+    <div class="features">
+      <div class="item"><span>✓</span> Unlimited translations (no daily limit)</div>
+      <div class="item"><span>✓</span> Auto-translate chat messages</div>
+      <div class="item"><span>✓</span> AI-powered reply generation</div>
+      <div class="item"><span>✓</span> 3-day free trial — cancel anytime</div>
+    </div>
+
+    <a class="cta" href="https://chromewebstore.google.com/detail/gamerlingo/hhedidaampanomcdlbebgajbjclmamim">
+      Try Pro Free for 3 Days
+    </a>
+
+    <p class="secondary">
+      Or keep using the free plan — 10 translations/day, forever free.
+    </p>
+
+    <div class="feedback">
+      <p>
+        Have feedback? We'd love to hear it:<br>
+        <a href="mailto:gamerlingo.support@gmail.com">gamerlingo.support@gmail.com</a>
+      </p>
+    </div>
   </div>
 </body>
 </html>

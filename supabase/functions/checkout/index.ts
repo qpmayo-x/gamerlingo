@@ -12,7 +12,7 @@ Deno.serve(async (req: Request) => {
   }
 
   try {
-    const { deviceId } = await req.json();
+    const { deviceId, plan } = await req.json();
 
     if (!deviceId) {
       return new Response(
@@ -25,12 +25,17 @@ Deno.serve(async (req: Request) => {
       apiVersion: "2024-06-20",
     });
 
+    // 月額 or 年額のprice IDを選択
+    const priceId = plan === "yearly"
+      ? Deno.env.get("STRIPE_YEARLY_PRICE_ID") || Deno.env.get("STRIPE_PRICE_ID")!
+      : Deno.env.get("STRIPE_PRICE_ID")!;
+
     const session = await stripe.checkout.sessions.create({
       mode: "subscription",
       payment_method_types: ["card"],
       line_items: [
         {
-          price: Deno.env.get("STRIPE_PRICE_ID")!,
+          price: priceId,
           quantity: 1,
         },
       ],
@@ -41,6 +46,7 @@ Deno.serve(async (req: Request) => {
         metadata: {
           device_id: deviceId,
         },
+        trial_period_days: 3,
       },
       success_url: "https://qpmayo-x.github.io/gamerlingo/store/success.html",
       cancel_url: "https://qpmayo-x.github.io/gamerlingo/store/cancel.html",
