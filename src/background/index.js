@@ -184,6 +184,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     deleteFromWordBook(message.savedAt).then(sendResponse)
     return true
   }
+  if (message.type === 'MANAGE_SUBSCRIPTION') {
+    handleManageSubscription().then(sendResponse)
+    return true
+  }
 })
 
 /**
@@ -380,6 +384,29 @@ async function deleteFromWordBook(savedAt) {
     return { success: true }
   } catch (e) {
     return { error: 'Failed to delete word' }
+  }
+}
+
+async function handleManageSubscription() {
+  try {
+    const deviceId = await getDeviceId()
+    const response = await fetch(`${SUPABASE_URL}/functions/v1/customer-portal`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+      },
+      body: JSON.stringify({ deviceId }),
+    })
+
+    const data = await response.json()
+    if (data.url) {
+      chrome.tabs.create({ url: data.url })
+      return { success: true }
+    }
+    return { error: data.error || 'Failed to open subscription management' }
+  } catch (err) {
+    return { error: `Subscription management failed: ${err.message}` }
   }
 }
 

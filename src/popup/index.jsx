@@ -24,6 +24,9 @@ const UI_STRINGS = {
     showMore: 'もっと見る',
     showLess: '折りたたむ',
     translatingText: '翻訳中...',
+    proActive: '✨ Pro プラン利用中',
+    manageSub: 'サブスクリプション管理',
+    cancelSub: 'Stripeで解約・プラン変更が可能です',
   },
   en: {
     subtitle: 'AI Game Translator',
@@ -46,6 +49,9 @@ const UI_STRINGS = {
     showMore: 'Show more',
     showLess: 'Show less',
     translatingText: 'Translating...',
+    proActive: '✨ Pro Plan Active',
+    manageSub: 'Manage Subscription',
+    cancelSub: 'Cancel or change plan via Stripe',
   },
   zh: {
     subtitle: 'AI游戏翻译器',
@@ -68,6 +74,9 @@ const UI_STRINGS = {
     showMore: '查看更多',
     showLess: '收起',
     translatingText: '翻译中...',
+    proActive: '✨ Pro 计划已激活',
+    manageSub: '管理订阅',
+    cancelSub: '通过Stripe取消或更改计划',
   },
   ko: {
     subtitle: 'AI 게임 번역기',
@@ -90,6 +99,9 @@ const UI_STRINGS = {
     showMore: '더 보기',
     showLess: '접기',
     translatingText: '번역 중...',
+    proActive: '✨ Pro 플랜 활성',
+    manageSub: '구독 관리',
+    cancelSub: 'Stripe에서 해지/변경 가능',
   },
   es: {
     subtitle: 'Traductor de juegos con IA',
@@ -112,6 +124,9 @@ const UI_STRINGS = {
     showMore: 'Ver más',
     showLess: 'Ver menos',
     translatingText: 'Traduciendo...',
+    proActive: '✨ Plan Pro Activo',
+    manageSub: 'Gestionar suscripción',
+    cancelSub: 'Cancela o cambia en Stripe',
   },
   pt: {
     subtitle: 'Tradutor gamer com IA',
@@ -134,6 +149,9 @@ const UI_STRINGS = {
     showMore: 'Ver mais',
     showLess: 'Ver menos',
     translatingText: 'Traduzindo...',
+    proActive: '✨ Plano Pro Ativo',
+    manageSub: 'Gerenciar assinatura',
+    cancelSub: 'Cancele ou altere pelo Stripe',
   },
   ru: {
     subtitle: 'ИИ-переводчик для игр',
@@ -156,6 +174,9 @@ const UI_STRINGS = {
     showMore: 'Показать ещё',
     showLess: 'Свернуть',
     translatingText: 'Перевод...',
+    proActive: '✨ Pro-план активен',
+    manageSub: 'Управление подпиской',
+    cancelSub: 'Отмена или смена плана через Stripe',
   },
   de: {
     subtitle: 'KI-Spieleübersetzer',
@@ -178,6 +199,9 @@ const UI_STRINGS = {
     showMore: 'Mehr anzeigen',
     showLess: 'Weniger',
     translatingText: 'Übersetze...',
+    proActive: '✨ Pro-Plan aktiv',
+    manageSub: 'Abo verwalten',
+    cancelSub: 'Kündigung oder Planwechsel über Stripe',
   },
   fr: {
     subtitle: 'Traducteur gaming IA',
@@ -200,6 +224,9 @@ const UI_STRINGS = {
     showMore: 'Voir plus',
     showLess: 'Voir moins',
     translatingText: 'Traduction...',
+    proActive: '✨ Plan Pro actif',
+    manageSub: "Gérer l'abonnement",
+    cancelSub: 'Annuler ou changer via Stripe',
   },
   hi: {
     subtitle: 'AI गेम ट्रांसलेटर',
@@ -222,6 +249,9 @@ const UI_STRINGS = {
     showMore: 'और देखें',
     showLess: 'कम देखें',
     translatingText: 'अनुवाद...',
+    proActive: '✨ Pro प्लान एक्टिव',
+    manageSub: 'सब्सक्रिप्शन मैनेज करें',
+    cancelSub: 'Stripe से कैंसल या बदलें',
   },
 }
 
@@ -566,6 +596,20 @@ function App() {
               {t.upgradePro}
             </button>
           </>
+        )}
+        {usage.isPro && (
+          <div className="mt-1">
+            <div className="text-xs text-[#6c63ff] font-medium mb-2">{t.proActive}</div>
+            <button
+              className="w-full bg-[#2a2a4a] text-gray-300 py-2 rounded-lg text-xs hover:bg-[#3a3a5a] transition-colors"
+              onClick={() => {
+                chrome.runtime.sendMessage({ type: 'MANAGE_SUBSCRIPTION' })
+              }}
+            >
+              {t.manageSub}
+            </button>
+            <div className="text-[10px] text-gray-500 mt-1 text-center">{t.cancelSub}</div>
+          </div>
         )}
       </div>
 
