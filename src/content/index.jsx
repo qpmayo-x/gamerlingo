@@ -712,7 +712,11 @@ const PROCESSED_ATTR = 'data-gamerlingo'
  */
 function injectDiscordButtons() {
   // Discordのメッセージコンテナを取得
-  const messages = document.querySelectorAll('[class*="messageContent_"]:not([data-gamerlingo])')
+  const messages = document.querySelectorAll(
+    '[class*="messageContent_"]:not([data-gamerlingo]), ' +
+    '[id^="message-content-"]:not([data-gamerlingo]), ' +
+    '[class*="markup_"][class*="messageContent"]:not([data-gamerlingo])'
+  )
 
   messages.forEach((msg) => {
     msg.setAttribute(PROCESSED_ATTR, 'true')
@@ -1143,19 +1147,247 @@ function injectTwitchButtons() {
 }
 
 /**
+ * Steam: コミュニティ/ストア/プロフィールのコメントに翻訳ボタンを追加
+ */
+function injectSteamButtons() {
+  const messages = document.querySelectorAll(
+    '.forum_op .content:not([data-gamerlingo]), ' +
+    '.commentthread_comment_text:not([data-gamerlingo]), ' +
+    '.review_box .content:not([data-gamerlingo]), ' +
+    '.apphub_CardTextContent:not([data-gamerlingo])'
+  )
+
+  messages.forEach((msg) => {
+    msg.setAttribute(PROCESSED_ATTR, 'true')
+
+    const text = msg.textContent?.trim()
+    if (!text || text.length < 2) return
+
+    // 翻訳ボタンを作成
+    const btn = document.createElement('button')
+    btn.textContent = '\uD83C\uDF10'
+    btn.title = 'GamerLingo: Translate'
+    btn.style.cssText = `
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      opacity: 0.4;
+      padding: 0 4px;
+      transition: opacity 0.15s;
+      vertical-align: middle;
+    `
+    btn.addEventListener('mouseenter', () => { btn.style.opacity = '1' })
+    btn.addEventListener('mouseleave', () => { btn.style.opacity = '0.4' })
+
+    btn.addEventListener('click', async (e) => {
+      e.stopPropagation()
+      e.preventDefault()
+
+      // 既に翻訳済みなら削除してトグル
+      const existing = msg.querySelector('.gl-inline-translation')
+      if (existing) {
+        existing.remove()
+        return
+      }
+
+      btn.textContent = '\u231B'
+
+      try {
+        const translated = await translateText(text, 'Steam community')
+
+        const translationDiv = document.createElement('div')
+        translationDiv.className = 'gl-inline-translation'
+        translationDiv.style.cssText = `
+          background: rgba(108, 99, 255, 0.1);
+          border-left: 2px solid #6c63ff;
+          border-radius: 0 6px 6px 0;
+          color: #b8b8d0;
+          font-size: 13px;
+          margin-top: 4px;
+          padding: 4px 8px;
+          line-height: 1.4;
+        `
+
+        const textSpan = document.createElement('span')
+        textSpan.textContent = translated
+
+        const replyBtn = document.createElement('button')
+        replyBtn.textContent = '\uD83D\uDCAC Reply'
+        replyBtn.style.cssText = `
+          background: #1a3a2a;
+          border: 1px solid #2a5a3a;
+          border-radius: 4px;
+          color: #7ecf9a;
+          cursor: pointer;
+          font-size: 11px;
+          margin-left: 8px;
+          padding: 2px 8px;
+          transition: background 0.15s;
+          vertical-align: middle;
+        `
+        replyBtn.addEventListener('mouseenter', () => { replyBtn.style.background = '#2a5a3a' })
+        replyBtn.addEventListener('mouseleave', () => { replyBtn.style.background = '#1a3a2a' })
+        replyBtn.addEventListener('click', async (ev) => {
+          ev.stopPropagation()
+          replyBtn.textContent = '...'
+          replyBtn.disabled = true
+          const res = await generateReplies(text, translated)
+          if (res.proOnly) {
+            const upsell = document.createElement('div')
+            upsell.style.cssText = 'font-size:11px;color:#ffb86c;margin-top:4px;'
+            upsell.textContent = 'Pro feature \u2014 '
+            const upgradeLink = document.createElement('a')
+            upgradeLink.textContent = 'Upgrade'
+            upgradeLink.style.cssText = 'color:#a855f7;cursor:pointer;text-decoration:underline;'
+            upgradeLink.addEventListener('click', (e) => {
+              e.stopPropagation()
+              chrome.runtime.sendMessage({ type: 'CREATE_CHECKOUT' })
+            })
+            upsell.appendChild(upgradeLink)
+            translationDiv.appendChild(upsell)
+          } else if (res.replies) {
+            const repliesDiv = document.createElement('div')
+            repliesDiv.style.cssText = 'display:flex;flex-direction:column;gap:3px;margin-top:4px;'
+            res.replies.forEach((reply) => {
+              const opt = document.createElement('button')
+              opt.textContent = reply
+              opt.style.cssText = `
+                background: #1a3a2a;
+                border: 1px solid #2a5a3a;
+                border-radius: 4px;
+                color: #c8e6d0;
+                cursor: pointer;
+                font-size: 11px;
+                padding: 3px 8px;
+                text-align: left;
+                word-break: break-word;
+                transition: background 0.15s;
+              `
+              opt.addEventListener('mouseenter', () => { opt.style.background = '#2a5a3a' })
+              opt.addEventListener('mouseleave', () => { opt.style.background = '#1a3a2a' })
+              opt.addEventListener('click', (e) => {
+                e.stopPropagation()
+                navigator.clipboard.writeText(reply)
+                const orig = opt.textContent
+                opt.textContent = 'Copied!'
+                setTimeout(() => { opt.textContent = orig }, 1500)
+              })
+              repliesDiv.appendChild(opt)
+            })
+            translationDiv.appendChild(repliesDiv)
+          }
+          replyBtn.textContent = '\uD83D\uDCAC Reply'
+          replyBtn.disabled = false
+        })
+
+        const bookmarkBtn = document.createElement('button')
+        bookmarkBtn.textContent = '\u2B50'
+        bookmarkBtn.title = 'Save to Word Book'
+        bookmarkBtn.style.cssText = `
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-size: 12px;
+          margin-left: 4px;
+          padding: 0 2px;
+          opacity: 0.6;
+          transition: opacity 0.15s;
+          vertical-align: middle;
+        `
+        bookmarkBtn.addEventListener('mouseenter', () => { bookmarkBtn.style.opacity = '1' })
+        bookmarkBtn.addEventListener('mouseleave', () => { bookmarkBtn.style.opacity = '0.6' })
+        bookmarkBtn.addEventListener('click', async (ev) => {
+          ev.stopPropagation()
+          await chrome.runtime.sendMessage({ type: 'SAVE_WORD', original: text, translated })
+          bookmarkBtn.textContent = 'Saved!'
+          setTimeout(() => { bookmarkBtn.textContent = '\u2B50' }, 1000)
+        })
+
+        translationDiv.appendChild(textSpan)
+        translationDiv.appendChild(bookmarkBtn)
+        translationDiv.appendChild(replyBtn)
+        msg.appendChild(translationDiv)
+      } catch (err) {
+        const errorDiv = document.createElement('div')
+        errorDiv.className = 'gl-inline-translation'
+        if (err.limitReached) {
+          errorDiv.style.cssText = `
+            background: rgba(255, 184, 108, 0.1);
+            border-left: 2px solid #ffb86c;
+            border-radius: 0 6px 6px 0;
+            font-size: 12px;
+            margin-top: 4px;
+            padding: 4px 8px;
+            line-height: 1.4;
+          `
+          const limitSpan = document.createElement('span')
+          limitSpan.style.cssText = 'color:#ffb86c;font-weight:600;'
+          limitSpan.textContent = 'Daily limit reached (10/10). '
+          errorDiv.appendChild(limitSpan)
+          const upgradeLink = document.createElement('a')
+          upgradeLink.style.cssText = 'color:#a855f7;cursor:pointer;text-decoration:underline;'
+          upgradeLink.textContent = 'Upgrade to Pro'
+          upgradeLink.addEventListener('click', (ev) => {
+            ev.stopPropagation()
+            chrome.runtime.sendMessage({ type: 'CREATE_CHECKOUT' })
+          })
+          errorDiv.appendChild(upgradeLink)
+          errorDiv.appendChild(document.createTextNode(' for unlimited!'))
+        } else {
+          errorDiv.style.cssText = 'color: #ff6b6b; font-size: 12px; margin-top: 4px;'
+          errorDiv.textContent = err.message
+          const retryLink = document.createElement('a')
+          retryLink.textContent = ' Retry'
+          retryLink.style.cssText = 'color:#6c63ff;cursor:pointer;text-decoration:underline;margin-left:6px;'
+          retryLink.addEventListener('click', (ev) => {
+            ev.stopPropagation()
+            errorDiv.remove()
+            btn.click()
+          })
+          errorDiv.appendChild(retryLink)
+        }
+        msg.appendChild(errorDiv)
+      } finally {
+        btn.textContent = '\uD83C\uDF10'
+      }
+    })
+
+    // メッセージの末尾にボタンを追加
+    msg.appendChild(btn)
+
+    // Auto-translate: キューに追加
+    if (autoTranslateEnabled && !isLikelyTargetLang(text, autoTranslateTargetLang)) {
+      queueAutoTranslate(text, msg, 'Steam community')
+    }
+  })
+}
+
+/**
  * MutationObserverでチャットの新しいメッセージを監視
  */
 function startChatObserver() {
-  if (SITE !== 'discord' && SITE !== 'twitch') return
+  if (SITE !== 'discord' && SITE !== 'twitch' && SITE !== 'steam') return
 
-  const injectFn = SITE === 'discord' ? injectDiscordButtons : injectTwitchButtons
+  const injectFn = SITE === 'discord'
+    ? injectDiscordButtons
+    : SITE === 'steam'
+      ? injectSteamButtons
+      : injectTwitchButtons
 
   // 初回実行
   injectFn()
 
-  // DOMの変化を監視して新しいメッセージにボタンを追加
+  // DOMの変化を監視して新しいメッセージにボタンを追加（デバウンス付き）
+  let injectPending = false
   const observer = new MutationObserver(() => {
-    injectFn()
+    if (!injectPending) {
+      injectPending = true
+      requestAnimationFrame(() => {
+        injectFn()
+        injectPending = false
+      })
+    }
   })
 
   // チャットエリアが見つかるまでリトライ
@@ -1164,13 +1396,22 @@ function startChatObserver() {
 
     if (SITE === 'discord') {
       // Discordのチャットスクロールエリア
-      chatContainer = document.querySelector('[class*="scroller_"][class*="content_"]')
-        || document.querySelector('[data-list-id="chat-messages"]')
+      chatContainer = document.querySelector('[data-list-id="chat-messages"]')
+        || document.querySelector('[class*="scroller_"][class*="content_"]')
         || document.querySelector('main [class*="chatContent"]')
+        || document.querySelector('[class*="messagesWrapper_"]')
+        || document.querySelector('ol[class*="scrollerInner_"]')?.parentElement
     } else if (SITE === 'twitch') {
       chatContainer = document.querySelector('[class*="chat-scrollable-area"]')
         || document.querySelector('.chat-list--default')
         || document.querySelector('[data-a-target="chat-scroller"]')
+    } else if (SITE === 'steam') {
+      // Steam is not an SPA — observe the main content area for dynamic comment loading
+      chatContainer = document.querySelector('.forum_area')
+        || document.querySelector('.commentthread_comments')
+        || document.querySelector('.review_box')
+        || document.querySelector('#AppHubContent')
+        || document.body
     }
 
     if (chatContainer) {
