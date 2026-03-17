@@ -271,7 +271,9 @@ function App() {
       })
 
       if (!response) {
-        setQuickResult('Error: No response. Try reloading.')
+        setQuickResult('Error: Extension not responding. Try closing and reopening the popup.')
+      } else if (response.limitReached) {
+        setQuickResult(`Daily limit reached (${usage.limit}/${usage.limit}). Upgrade to Pro for unlimited translations!`)
       } else if (response.error) {
         setQuickResult(response.error)
       } else {
@@ -287,7 +289,11 @@ function App() {
         })
       }
     } catch (err) {
-      setQuickResult(`Error: ${err.message}`)
+      if (err.message?.includes('Could not establish connection')) {
+        setQuickResult('Error: Extension reloading. Please close and reopen the popup.')
+      } else {
+        setQuickResult(`Error: ${err.message}`)
+      }
     } finally {
       setTranslating(false)
     }
